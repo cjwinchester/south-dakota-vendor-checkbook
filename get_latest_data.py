@@ -74,6 +74,21 @@ def get_latest():
         inplace=True
     )
 
+    # read in the agency code data
+    df_codes = pd.read_csv(
+        'sd-agency-codes.csv',
+        dtype={'agency_code': str}
+    )
+
+    # merge into dataframe
+    df = pd.merge(
+        df,
+        df_codes,
+        how='left',
+        left_on='agency',
+        right_on='agency_code'
+    )
+
     # add a new column to group by
     df['monthyear'] = df['ap_payment_date'].dt.strftime('%Y%m')
 
@@ -86,7 +101,8 @@ def get_latest():
             f'{monthyear}.csv'
         )
         new_count += len(month_df)
-        month_df_cols = [x for x in month_df.columns if x != 'monthyear']
+        month_df_cols = [x for x in month_df.columns if x not in ['monthyear', 'agency']]  # noqa
+
         month_df[month_df_cols].to_csv(filepath, index=False)
         print(f'Wrote {filepath}')
 
