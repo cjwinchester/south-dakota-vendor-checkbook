@@ -1,4 +1,4 @@
 # South Dakota vendor checkbook data
-_Updated July 26, 2025_
+_Updated August 2, 2025_
 
-[Archiving](get_latest_data.py) South Dakota vendor checkbook data in [monthly CSV files](data) -- 1,344,985 records covering July 1, 2020, to July 23, 2025 -- and [a Jupyter notebook](Analyze%20checkbook%20data.ipynb) to poke at the data a little.
+[Archiving](get_latest_data.py) South Dakota vendor checkbook data in [monthly CSV files](data) -- 1,348,792 records covering July 1, 2020, to July 29, 2025 -- and [a Jupyter notebook](Analyze%20checkbook%20data.ipynb) to poke at the data a little.
